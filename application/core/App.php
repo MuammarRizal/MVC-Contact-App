@@ -9,7 +9,7 @@
 
             // mengecek class apakah ada atau tidak
             if(isset($this->url[0])){
-                if(file_exists("../application/controllers/".ucwords($this->url[0]).".php")){
+                if(file_exists("../application/controllers/".ucwords($this->url[0]).".php")){ 
                     $this->controller = ucwords($this->url[0]);
                     unset($this->url[0]);
                 }
@@ -20,20 +20,16 @@
             $this->controller = new $this->controller;
 
             // mengecek method ada atau tidak
-            if(isset($this->url[0])){
-                if(isset($this->url[1])){
-                    if(method_exists($this->controller, $this->url[1])){
-                        $this->method = $url[1];
-                        echo $this->method;
-                        unset($this->url[1]);
-                    }
+            if(isset($this->url[1])){
+                if(method_exists($this->controller, $this->url[1])){
+                    $this->method = $this->url[1];
+                    unset($this->url[1]);
                 }
             }
-            
 
-            // params
+            // mengecek ada params atau tidak
             if(!empty($this->url)){
-                $params = array_values($this->url);
+                $this->params = array_values($this->url);
             }
 
             // jalankan controller & method, serta kirimkan params jika ada
