@@ -1,7 +1,8 @@
 <?php 
     class Controller{
-        public function __construct(){
-            echo "Hello Controller";
+
+        public function view($path="Home/index",$data=[]){
+            require_once "../application/views/".$path.".php";
         }
     }
 ?>
