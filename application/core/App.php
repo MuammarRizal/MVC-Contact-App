@@ -37,7 +37,7 @@
         }
 
         public function parseURL(){
-            if(isset($_GET)){
+            if(isset($_GET["url"])){
                 $url = rtrim($_GET["url"]); # Untuk membersihkan tanda slash (/) diakhir
                 $url = filter_var($url, FILTER_SANITIZE_URL); # untuk membersihkan url jahat dari hacker
                 $url = explode("/", $url); # untuk memecahkan beberapa kata ke dalam array
