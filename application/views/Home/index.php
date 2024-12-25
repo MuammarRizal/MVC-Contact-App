@@ -1,3 +1,3 @@
 <div class="container">
-    <h2>Hello World</h2>
+    <h2>Hello <?= $data["nama"] ?></h2>
 </div>
